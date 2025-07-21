@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-// ✅ Your OpenWeather API Key
+
 const API_KEY = 'e747272dc9f3414bef56b03b64478926';
 
 function Weather({ city }) {
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState(null);
 
-  // ✅ Fetch weather data when city changes
+  
   useEffect(() => {
     const fetchWeather = async () => {
       try {
-        // reset previous state
+       
         setError(null);
         setWeather(null);
 
@@ -36,17 +36,17 @@ function Weather({ city }) {
     fetchWeather();
   }, [city]);
 
-  // ✅ Show error if city not found
+  
   if (error) {
     return <p style={{ color: 'red', fontWeight: 'bold' }}>{error}</p>;
   }
 
-  // ✅ Show loading message while fetching
+ 
   if (!weather) {
     return <p style={{ fontWeight: 'bold' }}>Loading...</p>;
   }
 
-  // ✅ Show weather details
+  
   return (
     <div
       style={{
